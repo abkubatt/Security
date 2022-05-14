@@ -4,6 +4,7 @@ import com.example.security.dao.AccountDao;
 import com.example.security.mappers.AccountMapper;
 import com.example.security.models.dtos.AccountDto;
 import com.example.security.models.entities.Account;
+import com.example.security.models.json.SignIn;
 import com.example.security.services.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,5 +47,18 @@ public class AccountServiceImpl implements AccountService {
         account.setActive(false);
         AccountDto deletedAccount = update(accountMapper.toAccountDto(account));
         return deletedAccount;
+    }
+
+    @Override
+    public AccountDto checkUser(SignIn signIn) {
+        Account account = new Account();
+        account.setLogin(signIn.getLogin());
+        account.setPassword(signIn.getPassword());
+        Account checkingAccount = accountDao.checkAccount(account.getLogin(), account.getPassword());
+        if (checkingAccount == null){
+            return null;
+        }else {
+            return accountMapper.toAccountDto(checkingAccount);
+        }
     }
 }
