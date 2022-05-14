@@ -12,6 +12,6 @@ public class AccountDto {
     Long id;
     String login;
     String password;
-    User user;
+    UserDto user;
     boolean isActive;
 }

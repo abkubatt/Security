@@ -9,11 +9,12 @@ import javax.persistence.*;
 
 @Entity
 @Data
-@Table(name = "role")
+@Table(name = "tb_role")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
+    @Enumerated(EnumType.STRING)
     Roles role;
 }

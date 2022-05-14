@@ -8,7 +8,7 @@ import javax.persistence.*;
 
 @Entity
 @Data
-@Table(name = "user")
+@Table(name = "tb_user")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class User {
     @Id
@@ -17,7 +17,7 @@ public class User {
     String name;
     String phone;
     String email;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "role_id")
     Role role;
     boolean isActive;

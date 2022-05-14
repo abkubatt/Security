@@ -8,7 +8,7 @@ import javax.persistence.*;
 
 @Entity
 @Data
-@Table(name = "account")
+@Table(name = "tb_account")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Account {
     @Id

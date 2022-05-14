@@ -1,18 +1,16 @@
-package com.example.security.models.dtos;
+package com.example.security.models.json;
 
-import com.example.security.models.entities.Role;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
 
-
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class UserDto {
-    Long id;
+public class Register {
     String name;
     String phone;
     String email;
-    RoleDto role;
-    boolean isActive;
+    Long roleId;
+    String password;
+    //Long userId;
 }
