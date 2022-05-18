@@ -6,9 +6,4 @@ public interface RoleService {
 
     RoleDto save(RoleDto roleDto);
 
-    RoleDto findById(Long id);
-
-    RoleDto update(RoleDto roleDto);
-
-    boolean delete(RoleDto roleDto);
 }

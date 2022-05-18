@@ -1,20 +1,20 @@
 package com.example.security.models.dtos;
 
-import com.example.security.models.entities.Role;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
 
+import java.util.Date;
 
 @Data
-@FieldDefaults(level = AccessLevel.PRIVATE)
 @Builder
-public class UserDto {
+@FieldDefaults(level = AccessLevel.PRIVATE)
+
+public class UserCodeDto {
     Long id;
-    String name;
-    String phone;
-    String email;
-    RoleDto role;
+    private UserDto user;
+    String code;
+    Date sendDate;
     boolean confirm;
 }

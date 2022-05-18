@@ -26,6 +26,7 @@ public class User {
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "role_id")
     Role role;
-    boolean isActive;
+    @Column
+    boolean confirm;
 
 }

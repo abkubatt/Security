@@ -1,19 +1,15 @@
 package com.example.security.services;
 
 import com.example.security.models.dtos.AccountDto;
+import com.example.security.models.dtos.UserCodeDto;
 import com.example.security.models.dtos.UserDto;
-import com.example.security.models.json.Register;
-import com.example.security.models.json.SignIn;
-
 public interface UserService {
 
-    UserDto save(Register register);
+    UserDto save(UserDto userDto);
 
     UserDto findById(Long id);
 
-    UserDto update(UserDto userDto);
-
-    UserDto delete(UserDto userDto);
+    UserDto findByUserCode(UserCodeDto userCodeDto);
 
 
 }

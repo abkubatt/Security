@@ -8,15 +8,7 @@ import org.mapstruct.factory.Mappers;
 import java.util.List;
 
 @Mapper
-public interface AccountMapper {
-
+public interface AccountMapper extends BaseMapper<Account ,AccountDto>{
     AccountMapper INSTANCE = Mappers.getMapper(AccountMapper.class);
 
-    Account toAccount(AccountDto accountDto);
-
-    AccountDto toAccountDto(Account account);
-
-    List<Account> toAccountList(List<AccountDto> accountDtos);
-
-    List<AccountDto> toAccountDtoList(List<Account> accounts);
 }

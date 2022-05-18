@@ -8,15 +8,8 @@ import org.mapstruct.factory.Mappers;
 import java.util.List;
 
 @Mapper
-public interface RoleMapper {
-
+public interface RoleMapper extends BaseMapper<Role, RoleDto>{
     RoleMapper INSTANCE = Mappers.getMapper(RoleMapper.class);
 
-    Role toRole(RoleDto roleDto);
 
-    RoleDto toRoleDto(Role role);
-
-    List<Role> toRoleList(List<RoleDto> roleDtos);
-
-    List<RoleDto> toRoleDtoList(List<Role> roles);
 }

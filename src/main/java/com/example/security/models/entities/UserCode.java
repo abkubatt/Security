@@ -1,27 +1,26 @@
 package com.example.security.models.entities;
 
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import java.util.Date;
 
-@Entity
 @Data
-@Table(name = "tb_account")
+@Entity
+@Table(name = "tb_user_code")
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Account {
+public class UserCode {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-    String login;
-    @NotNull(message = "Password must be between 4 to 15 characters")
-    @Size(min = 8, max = 15)
-    String password;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "user_id")
     User user;
-
+    String code;
+    Date sendDate;
+    boolean confirm;
 }

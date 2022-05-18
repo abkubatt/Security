@@ -17,34 +17,7 @@ public class RoleServiceImpl implements RoleService {
 
     @Override
     public RoleDto save(RoleDto roleDto) {
-        Role role = roleMapper.toRole(roleDto);
-        Role savedRole = roleDao.save(role);
-        return roleMapper.toRoleDto(savedRole);
-    }
-
-    @Override
-    public RoleDto findById(Long id) {
-        Role role = roleDao.findById(id).orElse(null);
-        return roleMapper.toRoleDto(role);
-    }
-
-    @Override
-    public RoleDto update(RoleDto roleDto) {
-        boolean isExists = roleDao.existsById(roleDto.getId());
-        if (!isExists){
-            return null;
-        }
-        else{
-            Role role =  roleMapper.toRole(roleDto);
-            Role updatedRole = roleDao.save(role);
-            return roleMapper.toRoleDto(updatedRole);
-        }
-    }
-
-    @Override
-    public boolean delete(RoleDto roleDto) {
-        Role role = roleMapper.toRole(roleDto);
-        roleDao.delete(role);
-        return true;
+        Role role = roleMapper.toEntity(roleDto);
+        return roleMapper.toDto(roleDao.save(role));
     }
 }
